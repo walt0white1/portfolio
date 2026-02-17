@@ -1,4 +1,5 @@
 import './globals.css';
+import './animations.css';
 
 export const metadata = {
   title: 'Matteo Taubin — Développeur Full Stack',

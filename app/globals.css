@@ -150,33 +150,59 @@ h1, h2, h3, h4 {
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-12px) rotate(2deg); }
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(2deg);
+  }
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px var(--accent-glow); }
-  50% { box-shadow: 0 0 40px var(--accent-glow-strong); }
+  0%, 100% {
+    box-shadow: 0 0 20px var(--accent-glow);
+  }
+  50% {
+    box-shadow: 0 0 40px var(--accent-glow-strong);
+  }
 }
 
 @keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .reveal {
@@ -188,6 +214,44 @@ h1, h2, h3, h4 {
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Float animation for floating icons */
+@supports (animation: float 1s ease-in-out infinite) {
+  .floatingIcon {
+    animation: float 6s ease-in-out infinite !important;
+  }
+
+  .floatingIcon:nth-child(2) {
+    animation: float 5s 0.5s ease-in-out infinite !important;
+  }
+
+  .floatingIcon:nth-child(3) {
+    animation: float 7s 1s ease-in-out infinite !important;
+  }
+
+  .floatingIcon:nth-child(4) {
+    animation: float 5.5s 1.5s ease-in-out infinite !important;
+  }
+
+  .floatingIcon:nth-child(5) {
+    animation: float 6.5s 0.8s ease-in-out infinite !important;
+  }
+
+  .floatingIcon:nth-child(6) {
+    animation: float 5.8s 2s ease-in-out infinite !important;
+  }
+}
+
+/* Pulse glow for avatar wrapper */
+@supports (animation: pulse-glow 1s ease-in-out infinite) {
+  .avatarWrapper::after {
+    animation: pulse-glow 3s ease-in-out infinite !important;
+  }
+
+  .dot {
+    animation: pulse-glow 2s ease-in-out infinite !important;
+  }
 }
 
 /* Responsive */
