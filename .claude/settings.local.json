@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(start \"\" \"C:\\\\Users\\\\Matteo\\\\Documents\\\\claude\\\\portfolio2\\\\.claude\\\\worktrees\\\\vigilant-yonath\\\\index.html\")"
+      "Bash(start \"\" \"C:\\\\Users\\\\Matteo\\\\Documents\\\\claude\\\\portfolio2\\\\.claude\\\\worktrees\\\\vigilant-yonath\\\\index.html\")",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
     ]
   }
 }
