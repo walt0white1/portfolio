@@ -35,7 +35,7 @@ export default function Hero() {
           <div className={styles.visual}>
             <div className={styles.avatarWrapper}>
               <div className={styles.avatar}>
-                <div className={styles.avatarInner}>MT</div>
+                <img src="/avatar.jpg" alt="Matteo Taubin" className={styles.avatarInner} style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'50%',objectPosition:'100% 45%',transform:'scale(1.4)',transformOrigin:'100% 45%'}} />
               </div>
               <div className={styles.floatingIcons}>
                 <div className={`${styles.floatingIcon} ${styles.react}`} title="React">
