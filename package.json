@@ -1,0 +1,21 @@
+{
+  "name": "matteo-taubin-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio professionnel de Matteo Taubin - Développeur Full Stack",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "next": "^14.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-next": "^14.1.0"
+  }
+}
