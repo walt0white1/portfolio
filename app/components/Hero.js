@@ -60,6 +60,11 @@ export default function Hero() {
             </div>
           </div>
         </div>
+        <div className={styles.scrollIndicator}>
+          <div className={styles.scrollLine}>
+            <div className={styles.scrollDot}></div>
+          </div>
+        </div>
       </div>
     </section>
   );

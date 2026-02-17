@@ -23,128 +23,60 @@ export default function Home() {
       {/* ABOUT */}
       <section className={styles.about} id="about">
         <div className="container">
-          <div className={styles.grid}>
+          <div className={styles.aboutLayout}>
             <div className="reveal">
               <SectionLabel>À propos</SectionLabel>
-              <h2 className="section-title">Créer des produits digitaux qui génèrent de vrais résultats.</h2>
-              <p>
-                Je suis un développeur full stack qui fait le pont entre l'ingénierie rigoureuse et le design réfléchi. Chaque ligne de code que j'écris a un objectif — qu'il s'agisse d'améliorer les temps de chargement, de perfectionner une interaction ou de faire évoluer une fonctionnalité en production.
-              </p>
-              <p>
-                Je ne me contente pas de créer des fonctionnalités. Je construis des systèmes structurés, maintenables et optimisés dès le premier jour. Mon approche est orientée business : je comprends qu'un code de qualité ne sert à rien s'il ne convertit pas, ne performe pas et n'évolue pas avec votre croissance.
-              </p>
-              <p>
-                Des interfaces au pixel près aux architectures backend robustes, je me concentre sur un travail qui respire la qualité — parce que vos utilisateurs remarquent la différence, et vos métriques aussi.
-              </p>
+              <h2 className="section-title">Développeur full stack<br/>& créatif digital.</h2>
             </div>
-            <div className={styles.stats}>
-              <div className={`${styles.statCard} reveal`}>
-                <div className={styles.number}>3+</div>
-                <div className={styles.label}>Années d'expérience</div>
+            <div className={`${styles.aboutText} reveal`}>
+              <p>Je suis un développeur passionné qui fait le pont entre l'ingénierie et le design. Chaque projet est une occasion de construire quelque chose de solide, performant et visuellement marquant.</p>
+              <p>Mon approche est simple : un code propre, une UX soignée et des résultats concrets pour vos utilisateurs.</p>
+            </div>
+            <div className={styles.aboutStats}>
+              <div className={`${styles.aboutStat} reveal`}>
+                <span className={styles.aboutStatNumber}>3+</span>
+                <span className={styles.aboutStatLabel}>Années d'exp.</span>
               </div>
-              <div className={`${styles.statCard} reveal`}>
-                <div className={styles.number}>30+</div>
-                <div className={styles.label}>Projets livrés</div>
+              <div className={`${styles.aboutStat} reveal`}>
+                <span className={styles.aboutStatNumber}>30+</span>
+                <span className={styles.aboutStatLabel}>Projets livrés</span>
               </div>
-              <div className={`${styles.statCard} reveal`}>
-                <div className={styles.number}>100%</div>
-                <div className={styles.label}>Clients satisfaits</div>
+              <div className={`${styles.aboutStat} reveal`}>
+                <span className={styles.aboutStatNumber}>100%</span>
+                <span className={styles.aboutStatLabel}>Satisfaction</span>
               </div>
-              <div className={`${styles.statCard} reveal`}>
-                <div className={styles.number}>15+</div>
-                <div className={styles.label}>Technologies maîtrisées</div>
+              <div className={`${styles.aboutStat} reveal`}>
+                <span className={styles.aboutStatNumber}>15+</span>
+                <span className={styles.aboutStatLabel}>Technologies</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SKILLS */}
+      {/* COMPETENCES - Carousel */}
       <section className={styles.skills} id="skills">
         <div className="container">
-          <div className="reveal">
-            <SectionLabel>Stack Technique</SectionLabel>
-            <h2 className="section-title">Les technologies avec lesquelles je travaille.</h2>
-            <p className="section-subtitle">Un ensemble d'outils et frameworks modernes, choisis pour leur fiabilité, leurs performances et leur expérience développeur.</p>
-          </div>
-          <div className={styles.skillsGrid}>
-            <div className={`${styles.skillCard} reveal`}>
-              <h3>Frontend</h3>
-              <p>Création d'interfaces réactives et interactives avec des frameworks modernes et une attention extrême aux détails.</p>
-              <div className={styles.tags}>
-                <span>HTML5</span>
-                <span>CSS / SCSS</span>
-                <span>JavaScript</span>
-                <span>TypeScript</span>
-                <span>React</span>
-                <span>Next.js</span>
-                <span>Tailwind CSS</span>
-              </div>
-            </div>
-            <div className={`${styles.skillCard} reveal`}>
-              <h3>Backend</h3>
-              <p>Construction de solutions serveur sécurisées et scalables avec une conception d'API robuste et des flux d'authentification éprouvés.</p>
-              <div className={styles.tags}>
-                <span>Node.js</span>
-                <span>Express</span>
-                <span>API REST</span>
-                <span>Authentification</span>
-                <span>Gestion serveur</span>
-              </div>
-            </div>
-            <div className={`${styles.skillCard} reveal`}>
-              <h3>Bases de données</h3>
-              <p>Conception de modèles de données et de requêtes efficaces pour les systèmes relationnels et orientés documents.</p>
-              <div className={styles.tags}>
-                <span>MongoDB</span>
-                <span>PostgreSQL</span>
-                <span>MySQL</span>
-                <span>Prisma</span>
-              </div>
-            </div>
-            <div className={`${styles.skillCard} reveal`}>
-              <h3>Outils & Environnement</h3>
-              <p>Utilisation des meilleurs outils pour le versioning, le déploiement et les workflows de design collaboratif.</p>
-              <div className={styles.tags}>
-                <span>Git / GitHub</span>
-                <span>Vercel</span>
-                <span>Figma</span>
-                <span>Docker</span>
-                <span>VS Code</span>
-              </div>
-            </div>
+          <div className="reveal" style={{textAlign: 'center'}}>
+            <SectionLabel style={{justifyContent: 'center'}}>Compétences</SectionLabel>
+            <h2 className="section-title">Les outils que je maîtrise.</h2>
           </div>
         </div>
-      </section>
-
-      {/* EXPERTISE */}
-      <section className={styles.expertise} id="expertise">
-        <div className="container">
-          <div className="reveal">
-            <SectionLabel>Expertise</SectionLabel>
-            <h2 className="section-title">Ce que j'apporte à chaque projet.</h2>
-            <p className="section-subtitle">Des domaines d'expertise ciblés, affinés au fil de projets concrets et d'une veille technologique continue.</p>
+        <div className={styles.marqueeWrapper}>
+          <div className={styles.marqueeLabel}>Développement</div>
+          <div className={styles.marquee}>
+            <div className={styles.marqueeTrack}>
+              {['React', 'Next.js', 'TypeScript', 'JavaScript', 'Node.js', 'Express', 'MongoDB', 'PostgreSQL', 'Prisma', 'Tailwind CSS', 'HTML5', 'CSS / SCSS', 'Git', 'Docker', 'Vercel', 'API REST', 'React', 'Next.js', 'TypeScript', 'JavaScript', 'Node.js', 'Express', 'MongoDB', 'PostgreSQL', 'Prisma', 'Tailwind CSS', 'HTML5', 'CSS / SCSS', 'Git', 'Docker', 'Vercel', 'API REST'].map((tech, i) => (
+                <span key={i} className={styles.marqueeItem}>{tech}</span>
+              ))}
+            </div>
           </div>
-          <div className={styles.expertiseGrid}>
-            <div className={`${styles.expertiseCard} reveal`}>
-              <h3>Développement Full Stack</h3>
-              <p>Des solutions de bout en bout — de la conception de la base de données à la livraison frontend — avec une architecture propre à chaque niveau.</p>
-            </div>
-            <div className={`${styles.expertiseCard} reveal`}>
-              <h3>UI / UX Moderne</h3>
-              <p>Des interfaces qui s'utilisent de façon intuitive et qui en imposent visuellement. Chaque interaction est intentionnelle, chaque pixel est placé avec soin.</p>
-            </div>
-            <div className={`${styles.expertiseCard} reveal`}>
-              <h3>Optimisation des performances</h3>
-              <p>Temps de chargement rapides, bundles optimisés et rendu efficace. La vitesse est une fonctionnalité, pas une option.</p>
-            </div>
-            <div className={`${styles.expertiseCard} reveal`}>
-              <h3>Responsive & Mobile-First</h3>
-              <p>Chaque projet est conçu mobile-first. Des mises en page fluides qui s'adaptent parfaitement à tous les formats d'écran.</p>
-            </div>
-            <div className={`${styles.expertiseCard} reveal`}>
-              <h3>Refonte stratégique</h3>
-              <p>Transformer des sites dépassés en plateformes modernes. Meilleure UX, conversion améliorée, présence de marque renforcée.</p>
+          <div className={styles.marqueeLabel}>Design & Graphisme</div>
+          <div className={styles.marquee}>
+            <div className={`${styles.marqueeTrack} ${styles.marqueeReverse}`}>
+              {['Figma', 'Photoshop', 'Illustrator', 'After Effects', 'Premiere Pro', 'Blender', 'UI Design', 'Prototypage', 'Motion Design', 'Responsive Design', 'Figma', 'Photoshop', 'Illustrator', 'After Effects', 'Premiere Pro', 'Blender', 'UI Design', 'Prototypage', 'Motion Design', 'Responsive Design'].map((tool, i) => (
+                <span key={i} className={styles.marqueeItem}>{tool}</span>
+              ))}
             </div>
           </div>
         </div>
@@ -249,92 +181,94 @@ export default function Home() {
       {/* METHOD */}
       <section className={styles.method} id="method">
         <div className="container">
-          <div className={styles.methodIntro}>
-            <SectionLabel style={{justifyContent: 'center'}}>Ma méthode</SectionLabel>
-            <h2 className="section-title" style={{textAlign: 'center'}}>Comment je travaille.</h2>
-            <p className="section-subtitle" style={{margin: '0 auto', textAlign: 'center'}}>Un workflow structuré et transparent conçu pour livrer des résultats prévisibles — sans mauvaises surprises, sans temps perdu.</p>
-          </div>
-          <div className={styles.methodGrid}>
-            <div className={`${styles.methodStep} reveal`}>
-              <div className={styles.number}>01</div>
-              <h3>Analyse & Audit</h3>
-              <p>Plongée en profondeur dans votre contexte actuel, vos objectifs business et vos utilisateurs cibles. J'identifie ce qui fonctionne, ce qui bloque et où se trouvent les vraies opportunités.</p>
-            </div>
-            <div className={`${styles.methodStep} reveal`}>
-              <div className={styles.number}>02</div>
-              <h3>Stratégie & Design</h3>
-              <p>Maquettes, direction artistique et architecture technique — alignées sur vos objectifs. Rien n'est construit avant que le plan soit solide.</p>
-            </div>
-            <div className={`${styles.methodStep} reveal`}>
-              <div className={styles.number}>03</div>
-              <h3>Développement</h3>
-              <p>Code propre et modulaire développé en sprints avec des points réguliers. Vous suivez l'avancement en temps réel et pouvez donner votre avis à chaque étape.</p>
-            </div>
-            <div className={`${styles.methodStep} reveal`}>
-              <div className={styles.number}>04</div>
-              <h3>Lancement & Optimisation</h3>
-              <p>Déploiement, tests de performance et suivi post-lancement. Je ne disparais pas après la livraison — je m'assure que tout tourne parfaitement.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* WHY ME */}
-      <section className={styles.why} id="why">
-        <div className="container">
           <div className="reveal">
-            <SectionLabel>Pourquoi moi</SectionLabel>
-            <h2 className="section-title">Ce qui fait la différence.</h2>
-            <p className="section-subtitle">Au-delà des compétences techniques — voici pourquoi les clients choisissent de travailler avec moi et reviennent.</p>
+            <SectionLabel>Ma méthode</SectionLabel>
+            <h2 className="section-title">Comment je travaille.</h2>
           </div>
-          <div className={styles.whyGrid}>
-            <div className={`${styles.whyCard} reveal`}>
-              <h3>Communication directe</h3>
-              <p>Pas d'intermédiaires. Vous échangez directement avec la personne qui écrit votre code. Réponses rapides, mises à jour claires, zéro friction.</p>
+          <div className={styles.methodTimeline}>
+            <div className={`${styles.methodCard} reveal`}>
+              <span className={styles.methodNum}>01</span>
+              <div>
+                <h3>Analyse & Audit</h3>
+                <p>Je comprends votre contexte, vos objectifs et vos utilisateurs avant d'écrire la moindre ligne.</p>
+              </div>
             </div>
-            <div className={`${styles.whyCard} reveal`}>
-              <h3>Attention aux détails</h3>
-              <p>Les petites choses comptent. Espacement cohérent, transitions fluides, états d'erreur soignés — je traque les détails pour que vos utilisateurs n'aient pas à le faire.</p>
+            <div className={`${styles.methodCard} reveal`}>
+              <span className={styles.methodNum}>02</span>
+              <div>
+                <h3>Stratégie & Design</h3>
+                <p>Maquettes et architecture technique alignées sur vos objectifs. Rien n'est construit sans un plan solide.</p>
+              </div>
             </div>
-            <div className={`${styles.whyCard} reveal`}>
-              <h3>Qualité avant quantité</h3>
-              <p>Je travaille sur un nombre limité de projets pour garantir focus et qualité. Quand je travaille avec vous, vous avez mon engagement total.</p>
+            <div className={`${styles.methodCard} reveal`}>
+              <span className={styles.methodNum}>03</span>
+              <div>
+                <h3>Développement</h3>
+                <p>Code propre développé en sprints avec des points réguliers. Vous suivez l'avancement en temps réel.</p>
+              </div>
             </div>
-            <div className={`${styles.whyCard} reveal`}>
-              <h3>Flexible & adaptable</h3>
-              <p>Les plans évoluent, les priorités changent. Je m'adapte rapidement sans jamais compromettre la qualité du code ni les délais de livraison.</p>
-            </div>
-            <div className={`${styles.whyCard} reveal`}>
-              <h3>Vision long terme</h3>
-              <p>Je conçois avec la scalabilité en tête. Architecture propre, code maintenable qui vous sert bien au-delà du jour du lancement.</p>
-            </div>
-            <div className={`${styles.whyCard} reveal`}>
-              <h3>Accompagnement personnalisé</h3>
-              <p>Chaque projet reçoit une approche sur mesure. Je prends le temps de comprendre votre contexte, vos contraintes et vos ambitions avant d'écrire la moindre ligne.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className={styles.cta} id="contact">
-        <div className="container">
-          <div className={styles.ctaContent}>
-            <div className="reveal" style={{textAlign: 'center'}}>
-              <SectionLabel style={{justifyContent: 'center'}}>Contactez-moi</SectionLabel>
-              <h2 className="section-title">Prêt à construire quelque chose <span style={{background: 'linear-gradient(135deg, var(--accent-light), var(--accent))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'}}>d'exceptionnel</span>&nbsp;?</h2>
-              <p className="section-subtitle" style={{margin: '0 auto'}}>
-                Que vous ayez besoin d'une nouvelle application web, d'une refonte ou d'une expertise technique sur un projet existant — je suis là pour transformer votre vision en produit digital haute performance.
-              </p>
-              <div className={styles.ctaButtons}>
-                <a href="mailto:hello@matteotaubin.dev" className="btn btn-primary">
-                  Démarrer une conversation
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-                </a>
-                <a href="#projects" className="btn btn-secondary">Voir mes projets</a>
+            <div className={`${styles.methodCard} reveal`}>
+              <span className={styles.methodNum}>04</span>
+              <div>
+                <h3>Lancement & Suivi</h3>
+                <p>Déploiement, tests et suivi post-lancement. Je m'assure que tout tourne parfaitement.</p>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section className={styles.contact} id="contact">
+        <div className="container">
+          <div className={styles.contactHeader}>
+            <div className="reveal">
+              <SectionLabel>Contact</SectionLabel>
+              <h2 className="section-title">Un projet en tête ?</h2>
+            </div>
+            <div className={`${styles.contactLinks} reveal`}>
+              <a href="mailto:hello@matteotaubin.dev" className={styles.contactLink}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" width="18" height="18"><path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" /></svg>
+                hello@matteotaubin.dev
+              </a>
+              <span className={styles.contactDot}></span>
+              <span className={styles.contactLink}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" width="18" height="18"><path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" /></svg>
+                Paris, France
+              </span>
+              <span className={styles.contactDot}></span>
+              <span className={styles.contactAvail}>Disponible</span>
+            </div>
+          </div>
+          <form className={`${styles.contactForm} reveal`} onSubmit={(e) => e.preventDefault()}>
+            <div className={styles.formFields}>
+              <div className={styles.formCol}>
+                <input type="text" className={styles.formInput} placeholder="Nom" aria-label="Nom" />
+                <input type="email" className={styles.formInput} placeholder="Email" aria-label="Email" />
+                <input type="text" className={styles.formInput} placeholder="Sujet" aria-label="Sujet" />
+              </div>
+              <div className={styles.formCol}>
+                <textarea className={styles.formTextarea} placeholder="Votre message..." aria-label="Message"></textarea>
+              </div>
+            </div>
+            <div className={styles.formBottom}>
+              <div className={styles.formSocials}>
+                <a href="#" className={styles.formSocialLink} aria-label="GitHub">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                <a href="#" className={styles.formSocialLink} aria-label="LinkedIn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+                <a href="#" className={styles.formSocialLink} aria-label="Twitter">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+              </div>
+              <button type="submit" className="btn btn-primary">
+                Envoyer
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" /></svg>
+              </button>
+            </div>
+          </form>
         </div>
       </section>
 

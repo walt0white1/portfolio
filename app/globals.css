@@ -1,5 +1,6 @@
 /* Design System */
-:root {
+:root,
+[data-theme="dark"] {
   --bg-primary: #0a0e17;
   --bg-secondary: #0f1520;
   --bg-card: #131a2a;
@@ -14,6 +15,29 @@
   --accent-dark: #2563eb;
   --accent-glow: rgba(59, 130, 246, 0.15);
   --accent-glow-strong: rgba(59, 130, 246, 0.3);
+  --nav-bg: rgba(10, 14, 23, 0.85);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] {
+  --bg-primary: #f8f9fb;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f3f8;
+  --border: #e2e6ef;
+  --border-light: #cdd3df;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #9ca3af;
+  --accent: #3b82f6;
+  --accent-light: #2563eb;
+  --accent-dark: #1d4ed8;
+  --accent-glow: rgba(59, 130, 246, 0.1);
+  --accent-glow-strong: rgba(59, 130, 246, 0.2);
+  --nav-bg: rgba(255, 255, 255, 0.85);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 *, *::before, *::after {
@@ -34,6 +58,7 @@ body {
   color: var(--text-secondary);
   line-height: 1.7;
   overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 ::-webkit-scrollbar { width: 6px; }
@@ -202,6 +227,17 @@ h1, h2, h3, h4 {
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes scrollBounce {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 0.4;
   }
 }
 
