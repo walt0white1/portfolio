@@ -150,11 +150,13 @@
   width: 18px;
   height: 18px;
   object-fit: contain;
-  filter: brightness(0) saturate(100%);
+  opacity: 0.8;
+  transition: all 0.3s ease;
 }
 
 .marqueeItem:hover .techLogo {
-  filter: brightness(1) saturate(1);
+  opacity: 1;
+  transform: scale(1.2);
 }
 
 .marqueeItem:hover {
