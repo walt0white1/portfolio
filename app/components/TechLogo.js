@@ -1,50 +1,41 @@
 'use client';
 
-import Image from 'next/image';
 import styles from '../page.module.css';
 
-const logoUrls = {
-  'React': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg',
-  'Next.js': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg',
-  'TypeScript': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg',
-  'JavaScript': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg',
-  'Node.js': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg',
-  'Express': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg',
-  'MongoDB': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg',
-  'PostgreSQL': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg',
-  'Prisma': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/prisma/prisma-original.svg',
-  'Tailwind CSS': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-plain.svg',
-  'HTML5': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg',
-  'CSS / SCSS': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg',
-  'Git': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg',
-  'Docker': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg',
-  'Vercel': 'https://www.svgrepo.com/show/341522/vercel.svg',
-  'API REST': 'https://www.svgrepo.com/show/373595/rest.svg',
-  'Figma': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg',
-  'Photoshop': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/photoshop/photoshop-original.svg',
-  'Illustrator': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/illustrator/illustrator-original.svg',
-  'After Effects': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/aftereffects/aftereffects-original.svg',
-  'Premiere Pro': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/premierepro/premierepro-original.svg',
-  'Blender': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/blender/blender-original.svg',
-  'UI Design': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg',
-  'Prototypage': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg',
-  'Motion Design': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/aftereffects/aftereffects-original.svg',
-  'Responsive Design': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/chrome/chrome-original.svg',
+// SVG Logos colorés avec les vraies couleurs officielles
+const coloredLogos = {
+  'React': <svg viewBox="0 0 24 24" className={styles.techLogoSvg}><circle cx="12" cy="12" r="2" fill="#61DAFB"/><ellipse cx="12" cy="12" rx="8" ry="3" fill="none" stroke="#61DAFB" strokeWidth="1.2" transform="rotate(0)"/><ellipse cx="12" cy="12" rx="8" ry="3" fill="none" stroke="#61DAFB" strokeWidth="1.2" transform="rotate(60)"/><ellipse cx="12" cy="12" rx="8" ry="3" fill="none" stroke="#61DAFB" strokeWidth="1.2" transform="rotate(120)"/></svg>,
+  'Next.js': <svg viewBox="0 0 24 24" fill="#000" className={styles.techLogoSvg}><rect width="24" height="24" rx="2" fill="#000"/><text x="12" y="14" textAnchor="middle" fontSize="8" fontWeight="bold" fill="#fff">NX</text></svg>,
+  'TypeScript': <svg viewBox="0 0 24 24" className={styles.techLogoSvg}><rect width="24" height="24" rx="2" fill="#3178C6"/><text x="12" y="14" textAnchor="middle" fontSize="8" fontWeight="bold" fill="#fff">TS</text></svg>,
+  'JavaScript': <svg viewBox="0 0 24 24" className={styles.techLogoSvg}><rect width="24" height="24" rx="2" fill="#F7DF1E"/><text x="12" y="14" textAnchor="middle" fontSize="9" fontWeight="bold" fill="#000">JS</text></svg>,
+  'Node.js': <svg viewBox="0 0 24 24" fill="#68A063" className={styles.techLogoSvg}><circle cx="12" cy="12" r="10" fill="#68A063"/><circle cx="12" cy="12" r="7" fill="#fff" opacity="0.2"/></svg>,
+  'Express': <svg viewBox="0 0 24 24" className={styles.techLogoSvg}><rect width="24" height="24" rx="2" fill="#000"/><text x="12" y="14" textAnchor="middle" fontSize="8" fontWeight="bold" fill="#fff">EX</text></svg>,
+  'MongoDB': <svg viewBox="0 0 24 24" fill="#13AA52" className={styles.techLogoSvg}><circle cx="12" cy="12" r="10" fill="#13AA52"/></svg>,
+  'PostgreSQL': <svg viewBox="0 0 24 24" fill="#336791" className={styles.techLogoSvg}><circle cx="12" cy="12" r="10" fill="#336791"/></svg>,
+  'Prisma': <svg viewBox="0 0 24 24" className={styles.techLogoSvg}><polygon points="12,2 22,20 2,20" fill="#2D3748"/></svg>,
+  'Tailwind CSS': <svg viewBox="0 0 24 24" className={styles.techLogoSvg}><circle cx="12" cy="12" r="10" fill="#06B6D4"/></svg>,
+  'HTML5': <svg viewBox="0 0 24 24" className={styles.techLogoSvg}><polygon points="3,2 21,2 18,22 12,24 6,22" fill="#E34C26"/></svg>,
+  'CSS / SCSS': <svg viewBox="0 0 24 24" className={styles.techLogoSvg}><polygon points="3,2 21,2 18,22 12,24 6,22" fill="#1572B6"/></svg>,
+  'Git': <svg viewBox="0 0 24 24" className={styles.techLogoSvg}><circle cx="12" cy="12" r="10" fill="#F1502F"/></svg>,
+  'Docker': <svg viewBox="0 0 24 24" className={styles.techLogoSvg}><rect width="24" height="24" fill="#2496ED"/></svg>,
+  'Vercel': <svg viewBox="0 0 24 24" className={styles.techLogoSvg}><polygon points="12,2 22,20 2,20" fill="#000"/></svg>,
+  'API REST': <svg viewBox="0 0 24 24" fill="none" stroke="#3B82F6" strokeWidth="2" className={styles.techLogoSvg}><circle cx="6" cy="12" r="2"/><circle cx="12" cy="6" r="2"/><circle cx="18" cy="12" r="2"/></svg>,
+  'Figma': <svg viewBox="0 0 24 24" className={styles.techLogoSvg}><rect width="24" height="24" fill="#A259FF"/></svg>,
+  'Photoshop': <svg viewBox="0 0 24 24" className={styles.techLogoSvg}><rect width="24" height="24" rx="2" fill="#31A8FF"/><text x="12" y="14" textAnchor="middle" fontSize="8" fontWeight="bold" fill="#fff">Ps</text></svg>,
+  'Illustrator': <svg viewBox="0 0 24 24" className={styles.techLogoSvg}><rect width="24" height="24" rx="2" fill="#FF9A00"/><text x="12" y="14" textAnchor="middle" fontSize="8" fontWeight="bold" fill="#fff">Ai</text></svg>,
+  'After Effects': <svg viewBox="0 0 24 24" className={styles.techLogoSvg}><rect width="24" height="24" rx="2" fill="#0066CC"/><text x="12" y="14" textAnchor="middle" fontSize="7" fontWeight="bold" fill="#fff">Ae</text></svg>,
+  'Premiere Pro': <svg viewBox="0 0 24 24" className={styles.techLogoSvg}><rect width="24" height="24" rx="2" fill="#0066CC"/><text x="12" y="14" textAnchor="middle" fontSize="7" fontWeight="bold" fill="#fff">Pr</text></svg>,
+  'Blender': <svg viewBox="0 0 24 24" className={styles.techLogoSvg}><circle cx="12" cy="12" r="10" fill="#FF7F00"/></svg>,
+  'UI Design': <svg viewBox="0 0 24 24" className={styles.techLogoSvg}><rect width="24" height="24" fill="#A259FF"/></svg>,
+  'Prototypage': <svg viewBox="0 0 24 24" className={styles.techLogoSvg}><rect width="24" height="24" fill="#8B5CF6"/></svg>,
+  'Motion Design': <svg viewBox="0 0 24 24" className={styles.techLogoSvg}><polygon points="12,2 20,10 12,18 4,10" fill="#EC4899"/></svg>,
+  'Responsive Design': <svg viewBox="0 0 24 24" className={styles.techLogoSvg}><rect width="24" height="24" fill="#10B981"/></svg>,
 };
 
 export default function TechLogo({ tech }) {
-  const url = logoUrls[tech];
-
-  if (!url) return null;
-
   return (
-    <img
-      src={url}
-      alt={tech}
-      className={styles.techLogo}
-      onError={(e) => {
-        e.target.style.display = 'none';
-      }}
-    />
+    <span className={styles.techLogoContainer}>
+      {coloredLogos[tech]}
+    </span>
   );
 }

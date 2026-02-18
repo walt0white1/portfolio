@@ -146,12 +146,38 @@
   flex-shrink: 0;
 }
 
+.techLogoContainer {
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.techLogoSvg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
 .techLogo {
   width: 18px;
   height: 18px;
   object-fit: contain;
   opacity: 0.8;
   transition: all 0.3s ease;
+}
+
+.marqueeItem:hover .techLogoContainer {
+  opacity: 1;
+}
+
+.marqueeItem:hover .techLogoSvg {
+  opacity: 1;
+  transform: scale(1.2);
+  filter: drop-shadow(0 2px 8px rgba(59, 130, 246, 0.4));
 }
 
 .marqueeItem:hover .techLogo {
