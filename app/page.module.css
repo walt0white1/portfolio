@@ -146,8 +146,15 @@
   flex-shrink: 0;
 }
 
-.marqueeItem:hover .marqueeIcon {
-  color: var(--accent-light);
+.techLogo {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%);
+}
+
+.marqueeItem:hover .techLogo {
+  filter: brightness(1) saturate(1);
 }
 
 .marqueeItem:hover {
