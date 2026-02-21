@@ -1,15 +1,8 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
-import styles from './page.module.css';
 
 export default function BoxeProject() {
-  const [scrollY, setScrollY] = useState(0);
-
-  const handleScroll = (e) => {
-    setScrollY(e.currentTarget.scrollTop);
-  };
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#0a0a0a', position: 'relative', overflow: 'hidden' }}>
