@@ -49,6 +49,7 @@ export default function BoxingClubPremium() {
           }}
           title="Boxing Club Premium"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          onLoad={() => console.log('Boxing iframe loaded')}
         />
       </div>
     </div>
