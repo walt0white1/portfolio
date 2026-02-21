@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import Link from 'next/link';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Footer from './components/Footer';
@@ -44,8 +44,6 @@ const skillIcons = {
 };
 
 export default function Home() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState(null);
   useScrollReveal();
 
   return (
@@ -131,9 +129,9 @@ export default function Home() {
             <p className="section-subtitle">Des solutions concrètes construites pour de vraies entreprises. Voici à quoi ressemble le développement stratégique en pratique.</p>
           </div>
           <div className={styles.projectsGrid}>
-            <div className={`${styles.projectCard} reveal`}>
+            <Link href="/projects/boxe" className={`${styles.projectCard} reveal`} style={{ textDecoration: 'none' }}>
               {/* Full-width image showcase */}
-              <div className={styles.projectPreview} onClick={() => { setSelectedProject('boxing'); setModalOpen(true); }}>
+              <div className={styles.projectPreview}>
                 <img
                   src="/images/projects/boxing-preview.png"
                   alt="Boxing Club Premium - Site web premium pour club de boxe"
@@ -141,7 +139,7 @@ export default function Home() {
                 />
                 {/* Hover overlay */}
                 <div className={styles.projectOverlay}>
-                  <button className={styles.projectOverlayBtn} onClick={() => { setSelectedProject('boxing'); setModalOpen(true); }}>
+                  <button className={styles.projectOverlayBtn} type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                       <polyline points="15 3 21 3 21 9"></polyline>
@@ -159,7 +157,7 @@ export default function Home() {
                     <span className={styles.label}>Site Premium</span>
                     <h3>Boxing Club Premium</h3>
                   </div>
-                  <button className={styles.projectViewBtnSmall} onClick={() => { setSelectedProject('boxing'); setModalOpen(true); }}>
+                  <button className={styles.projectViewBtnSmall} type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                       <polyline points="15 3 21 3 21 9"></polyline>
@@ -177,81 +175,11 @@ export default function Home() {
                   <span>TypeScript</span>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* MODAL */}
-      {modalOpen && (
-        <div
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.9)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 1000,
-            padding: '2rem'
-          }}
-          onClick={() => setModalOpen(false)}
-        >
-          <div
-            style={{
-              position: 'relative',
-              width: '90vw',
-              height: '90vh',
-              backgroundColor: '#0a0a0a',
-              borderRadius: '12px',
-              overflow: 'hidden',
-              boxShadow: '0 20px 60px rgba(0,0,0,0.3)'
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Button */}
-            <button
-              onClick={() => setModalOpen(false)}
-              style={{
-                position: 'absolute',
-                top: '1rem',
-                right: '1rem',
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                border: 'none',
-                color: '#fff',
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                zIndex: 1001,
-                fontSize: '24px',
-                fontWeight: 'bold'
-              }}
-            >
-              ×
-            </button>
-
-            {/* IFrame */}
-            {selectedProject === 'boxing' && (
-              <iframe
-                src="http://localhost:3001"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  border: 'none'
-                }}
-                title="Boxing Club Premium Project"
-              />
-            )}
-          </div>
-        </div>
-      )}
 
       {/* METHOD */}
       <section className={styles.method} id="method">
