@@ -40,7 +40,7 @@ export default function BoxingClubPremium() {
         overflow: 'hidden'
       }}>
         <iframe
-          src="http://localhost:3001"
+          src={process.env.NEXT_PUBLIC_BOXE_URL || 'http://localhost:3001'}
           style={{
             width: '100%',
             height: '100%',
