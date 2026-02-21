@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Footer from './components/Footer';
@@ -43,6 +44,8 @@ const skillIcons = {
 };
 
 export default function Home() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
   useScrollReveal();
 
   return (
@@ -129,91 +132,126 @@ export default function Home() {
           </div>
           <div className={styles.projectsGrid}>
             <div className={`${styles.projectCard} reveal`}>
-              <div className={styles.projectPreview}>
-                <div className={styles.mockup}>
-                  <div className={styles.mockupBar}>
-                    <span></span><span></span><span></span>
-                  </div>
-                  <div className={styles.mockupContent}></div>
+              {/* Full-width image showcase */}
+              <div className={styles.projectPreview} onClick={() => { setSelectedProject('boxing'); setModalOpen(true); }}>
+                <img
+                  src="/images/projects/boxing-preview.png"
+                  alt="Boxing Club Premium - Site web premium pour club de boxe"
+                  className={styles.projectImage}
+                />
+                {/* Hover overlay */}
+                <div className={styles.projectOverlay}>
+                  <button className={styles.projectOverlayBtn} onClick={() => { setSelectedProject('boxing'); setModalOpen(true); }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    Explorer le projet
+                  </button>
                 </div>
               </div>
+
+              {/* Project info */}
               <div className={styles.projectInfo}>
-                <span className={styles.label}>E-Commerce</span>
-                <h3>NovaMart</h3>
-                <p>Une plateforme e-commerce haute performance pour une marque retail en croissance qui souffrait de temps de chargement longs et d'un taux de conversion mobile insuffisant.</p>
-                <div className={styles.meta}>
-                  <div><strong>Problème :</strong> 6s de chargement, 1,2% de conversion mobile</div>
-                  <div><strong>Solution :</strong> Next.js SSR, optimisation images, tunnel d'achat repensé</div>
-                  <div><strong>Résultat :</strong> 1,4s de chargement, 3,8% de conversion (+216%)</div>
+                <div className={styles.projectInfoHeader}>
+                  <div className={styles.projectInfoHeaderLeft}>
+                    <span className={styles.label}>Site Premium</span>
+                    <h3>Boxing Club Premium</h3>
+                  </div>
+                  <button className={styles.projectViewBtnSmall} onClick={() => { setSelectedProject('boxing'); setModalOpen(true); }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    Voir le site
+                  </button>
                 </div>
+                <p>Site web premium pour un club de boxe avec une identité visuelle forte. Expérience immersive, animations sophistiquées et design élégant.</p>
                 <div className={styles.projectTags}>
-                  <span>Next.js</span>
+                  <span>Next.js 15</span>
+                  <span>React 19</span>
+                  <span>Tailwind CSS</span>
+                  <span>Framer Motion</span>
                   <span>TypeScript</span>
-                  <span>MongoDB</span>
-                  <span>Tailwind</span>
-                  <span>Stripe</span>
-                </div>
-              </div>
-            </div>
-
-            <div className={`${styles.projectCard} reveal`}>
-              <div className={styles.projectPreview}>
-                <div className={styles.mockup}>
-                  <div className={styles.mockupBar}>
-                    <span></span><span></span><span></span>
-                  </div>
-                  <div className={styles.mockupContent}></div>
-                </div>
-              </div>
-              <div className={styles.projectInfo}>
-                <span className={styles.label}>SaaS Dashboard</span>
-                <h3>InsightBoard</h3>
-                <p>Un tableau de bord analytique en temps réel pour une startup SaaS B2B qui devait remplacer un ancien panneau d'administration par une interface moderne et orientée données.</p>
-                <div className={styles.meta}>
-                  <div><strong>Problème :</strong> UI obsolète, rendu lent, UX défaillante</div>
-                  <div><strong>Solution :</strong> SPA React avec listes virtualisées, API REST</div>
-                  <div><strong>Résultat :</strong> Données 60% plus rapides, 45% de tickets support en moins</div>
-                </div>
-                <div className={styles.projectTags}>
-                  <span>React</span>
-                  <span>Node.js</span>
-                  <span>PostgreSQL</span>
-                  <span>Chart.js</span>
-                  <span>Docker</span>
-                </div>
-              </div>
-            </div>
-
-            <div className={`${styles.projectCard} reveal`}>
-              <div className={styles.projectPreview}>
-                <div className={styles.mockup}>
-                  <div className={styles.mockupBar}>
-                    <span></span><span></span><span></span>
-                  </div>
-                  <div className={styles.mockupContent}></div>
-                </div>
-              </div>
-              <div className={styles.projectInfo}>
-                <span className={styles.label}>Site vitrine</span>
-                <h3>Verdant Studio</h3>
-                <p>Une refonte complète de marque et de site pour une agence de design souhaitant se repositionner sur le segment premium du marché.</p>
-                <div className={styles.meta}>
-                  <div><strong>Problème :</strong> Branding daté, faible trafic organique, rebond élevé</div>
-                  <div><strong>Solution :</strong> Site Next.js SEO-first, design moderne, CMS</div>
-                  <div><strong>Résultat :</strong> +180% de trafic organique, taux de rebond réduit de 42%</div>
-                </div>
-                <div className={styles.projectTags}>
-                  <span>Next.js</span>
-                  <span>SCSS</span>
-                  <span>Sanity CMS</span>
-                  <span>Vercel</span>
-                  <span>SEO</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* MODAL */}
+      {modalOpen && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.9)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 1000,
+            padding: '2rem'
+          }}
+          onClick={() => setModalOpen(false)}
+        >
+          <div
+            style={{
+              position: 'relative',
+              width: '90vw',
+              height: '90vh',
+              backgroundColor: '#0a0a0a',
+              borderRadius: '12px',
+              overflow: 'hidden',
+              boxShadow: '0 20px 60px rgba(0,0,0,0.3)'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setModalOpen(false)}
+              style={{
+                position: 'absolute',
+                top: '1rem',
+                right: '1rem',
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                border: 'none',
+                color: '#fff',
+                width: '40px',
+                height: '40px',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                zIndex: 1001,
+                fontSize: '24px',
+                fontWeight: 'bold'
+              }}
+            >
+              ×
+            </button>
+
+            {/* IFrame */}
+            {selectedProject === 'boxing' && (
+              <iframe
+                src="http://localhost:3001"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  border: 'none'
+                }}
+                title="Boxing Club Premium Project"
+              />
+            )}
+          </div>
+        </div>
+      )}
 
       {/* METHOD */}
       <section className={styles.method} id="method">
