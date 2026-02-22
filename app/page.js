@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Footer from './components/Footer';
@@ -129,7 +129,7 @@ export default function Home() {
             <p className="section-subtitle">Des solutions concrètes construites pour de vraies entreprises. Voici à quoi ressemble le développement stratégique en pratique.</p>
           </div>
           <div className={styles.projectsGrid}>
-            <Link href="/projects/boxe" className={`${styles.projectCard} reveal`} style={{ textDecoration: 'none' }}>
+            <a href="https://ironforge-boxing.vercel.app/" target="_blank" rel="noopener noreferrer" className={`${styles.projectCard} reveal`} style={{ textDecoration: 'none' }}>
               {/* Full-width image showcase */}
               <div className={styles.projectPreview}>
                 <img
@@ -175,7 +175,7 @@ export default function Home() {
                   <span>TypeScript</span>
                 </div>
               </div>
-            </Link>
+            </a>
           </div>
         </div>
       </section>
