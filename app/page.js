@@ -129,7 +129,7 @@ export default function Home() {
             <p className="section-subtitle">Des solutions concrètes construites pour de vraies entreprises. Voici à quoi ressemble le développement stratégique en pratique.</p>
           </div>
           <div className={styles.projectsGrid}>
-            <a href="https://ironforge-boxing.vercel.app/" target="_blank" rel="noopener noreferrer" className={`${styles.projectCard} reveal`} style={{ textDecoration: 'none' }}>
+            <a href="/projects/boxe" className={`${styles.projectCard} reveal`} style={{ textDecoration: 'none' }}>
               {/* Full-width image showcase */}
               <div className={styles.projectPreview}>
                 <img
