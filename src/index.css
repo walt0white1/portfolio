@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-twitch to-purple-400;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════
+   Holographic Badge Cards
+   ════════════════════════════════════════════════════════════════ */
+
+@property --holo-x {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+@property --holo-y {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+/* ── Card container ────────────────────────────────────────────── */
+.holo-card {
+  container-type: inline-size;
+  overflow: hidden;
+  aspect-ratio: 2.5 / 3.5;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.15s linear, box-shadow 0.3s ease;
+  transform:
+    perspective(600px)
+    rotateY(calc(-12deg * var(--holo-x)))
+    rotateX(calc(12deg * var(--holo-y)));
+  border-radius: 0.75rem;
+  cursor: pointer;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+}
+.holo-card:hover {
+  box-shadow:
+    0 0 20px var(--card-glow),
+    0 8px 32px rgba(0, 0, 0, 0.4);
+}
+.holo-card.is-empty {
+  opacity: 0.35;
+  filter: saturate(0.2);
+  cursor: default;
+}
+.holo-card.is-empty:hover {
+  box-shadow: none;
+}
+.holo-card.is-selected {
+  box-shadow:
+    0 0 0 2px #9146FF,
+    0 0 24px rgba(145, 70, 255, 0.4);
+}
+
+/* ── Holographic gradient overlay ──────────────────────────────── */
+.holo-card .holo-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(
+      ellipse at calc(90% - var(--holo-x) * 20%) calc(0% - var(--holo-y) * 20%),
+      rgba(255, 255, 255, 0.6),
+      var(--c1) 1%,
+      var(--c2) 20%,
+      transparent
+    ),
+    linear-gradient(
+      110deg,
+      var(--c1) calc(10% - var(--holo-x) * 20%),
+      var(--c3) calc(20% - var(--holo-x) * 20%),
+      var(--c1) calc(30% - var(--holo-x) * 20%),
+      var(--c2) calc(60% - var(--holo-x) * 20%),
+      transparent calc(100% - var(--holo-x) * 20%),
+      transparent
+    );
+  transition: all 0.15s linear, opacity 0.6s ease;
+  mix-blend-mode: hard-light;
+  opacity: 0.15;
+  pointer-events: none;
+}
+.holo-card:hover .holo-bg {
+  opacity: 0.75;
+}
+.holo-card.is-empty .holo-bg {
+  display: none;
+}
+
+/* ── Holographic line pattern ──────────────────────────────────── */
+.holo-card .holo-lines {
+  mask-image: url(https://assets.codepen.io/907471/holo-card-lines.png?v5);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    110deg,
+    var(--c1) calc(10% - var(--holo-x) * 20%),
+    var(--c3) calc(20% - var(--holo-x) * 20%),
+    var(--c1) calc(30% - var(--holo-x) * 20%),
+    var(--c3) calc(40% - var(--holo-x) * 20%),
+    transparent calc(60% - var(--holo-x) * 20%),
+    var(--c2) calc(70% - var(--holo-x) * 20%),
+    black calc(80% - var(--holo-x) * 20%)
+  );
+  transition: all 0.15s linear, opacity 0.6s ease;
+  opacity: 0;
+}
+.holo-card:hover .holo-lines {
+  opacity: 0.6;
+}
+.holo-card.is-empty .holo-lines {
+  display: none;
+}
+
+/* ── Circle dot pattern ────────────────────────────────────────── */
+.holo-card .holo-circles {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+.holo-card .holo-circles::before,
+.holo-card .holo-circles::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  aspect-ratio: 1;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    var(--c1-40) 0.15rem,
+    transparent 0.15rem
+  ) repeat;
+  background-size: 0.6rem 0.6rem;
+}
+.holo-card .holo-circles::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.holo-card .holo-circles::after {
+  transform: translate(50%, 100%) rotate(45deg);
+}
+.holo-card:hover .holo-circles {
+  opacity: 0.8;
+}
+.holo-card.is-empty .holo-circles {
+  display: none;
+}
+
+/* ── Card inner content ────────────────────────────────────────── */
+.holo-card .card-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 12% 8%;
+  text-align: center;
+}
+
+.holo-card .card-rarity {
+  font-size: clamp(0.5rem, 3.5cqw, 0.85rem);
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--c1);
+  text-shadow: 0 0 12px var(--card-glow);
+}
+
+.holo-card .card-count {
+  font-size: clamp(2rem, 16cqw, 4.5rem);
+  font-weight: 900;
+  line-height: 1;
+  color: #fff;
+  text-shadow:
+    0 0 20px var(--card-glow),
+    0 2px 8px rgba(0, 0, 0, 0.6);
+  transition: transform 0.2s ease;
+}
+.holo-card:hover .card-count {
+  transform: scale(1.05);
+}
+
+.holo-card .card-pts {
+  font-size: clamp(0.4rem, 2.8cqw, 0.7rem);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.05em;
+}
+
+/* ── Idle shimmer animation ────────────────────────────────────── */
+@keyframes holo-shimmer {
+  0%, 100% { --holo-x: 0.6;  --holo-y: 0.4; }
+  25%      { --holo-x: -0.8; --holo-y: 0.1; }
+  50%      { --holo-x: 0.3;  --holo-y: -0.5; }
+  75%      { --holo-x: -0.4; --holo-y: -0.3; }
+}
+.holo-card.idle-shimmer {
+  animation: holo-shimmer 8s ease-in-out infinite;
+}
+.holo-card.idle-shimmer .holo-bg {
+  opacity: 0.5;
+}
+.holo-card.idle-shimmer .holo-circles {
+  opacity: 0.4;
+}
