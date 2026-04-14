@@ -1152,6 +1152,24 @@ def donation_tts_poller():
                     json=update, timeout=5
                 )
 
+                # Incrémenter total_cents au même moment (synchronise barre + overlay)
+                try:
+                    cur_r = http_requests.get(
+                        f"{supa_url}/rest/v1/donation_goal_config?id=eq.1&select=total_cents",
+                        headers=headers, timeout=5
+                    )
+                    if cur_r.ok and cur_r.json():
+                        old_total = cur_r.json()[0].get("total_cents") or 0
+                        http_requests.patch(
+                            f"{supa_url}/rest/v1/donation_goal_config?id=eq.1",
+                            headers={**headers, "Prefer": "return=minimal"},
+                            json={"total_cents": old_total + don["amount_cents"]},
+                            timeout=5
+                        )
+                        print(f"[TTS_POLL] total_cents: {old_total} → {old_total + don['amount_cents']}")
+                except Exception as e:
+                    print(f"[TTS_POLL] Erreur maj total_cents: {e}")
+
         except Exception as e:
             print(f"[TTS_POLL] Erreur: {e}")
 
